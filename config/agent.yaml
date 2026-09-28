@@ -1,0 +1,30 @@
+# Agent Manifest — AgentRegistry entry point
+# AgentRegistry reads every key below at ROOT level. An earlier revision nested
+# them under an `agent:` block, which the registry does not read — those values
+# silently fell back to their defaults.
+
+id: "RET-C2-108"
+name: "RetailInteractionComplianceAuditAgent"
+namespace: "ret-c2-108"
+version: "1.0.0"
+enabled: true
+category: "Cat 2"
+generation_mode: "deterministic"
+industry: "RET"
+
+# Mau node-backbone (tham chieu ngu nghia — code ke thua
+# AgentBaseGraph truc tiep; lop L2 base-agent da bo).
+base_type: "VectorRAGAgent"
+
+# Entry point — mot duong dan cham duy nhat. AgentRegistry lam
+# class.rsplit(".", 1), nen cap module:/class: tach roi kieu cu resolve ra rong.
+class: "src.graph.graph.RetailInteractionComplianceAuditAgent"
+
+# VALID: ANONYMOUS | VERIFIED_EXTERNAL | INTERNAL
+required_trust_level: "VERIFIED_EXTERNAL"
+
+# Ca hai deu rong co y: src/ khong goi ctx.secrets.require() va
+# khong import goi optional-extra nao.
+requires:
+  secrets: []
+  extras: []

@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Env
+.env
+*.env.local
+
+# CoE-distributed reference files — local reference only, MUST NOT be committed (criterion #14)
+CLAUDE.md
+security_rules/
+MANIFEST.md
+# ci_stubs/ is not used here — framework.*/shared.* resolve via the scaffold CI include.
+ci_stubs/
+
+# Caches
+.ruff_cache/
+.mypy_cache/
